@@ -1,6 +1,5 @@
 *.aux
 *.bcf
 *.log
-*.pdf
 *.run.xml
 *synctex.gz
