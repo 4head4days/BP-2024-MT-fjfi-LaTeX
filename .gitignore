@@ -1,5 +1,9 @@
+*.bib
 *.aux
 *.bcf
 *.log
 *.run.xml
 *synctex.gz
+*.aux
+*.bbl
+*.blg
