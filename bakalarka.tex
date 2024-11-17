@@ -98,7 +98,6 @@
 
     \begin{tabular}{l}
 		\tb{Studijní program: \program}\\
-		\tb{Specializace: \spec}\\
     \end{tabular}
 
    \vspace{10mm} \logoCVUT \vspace{15mm} 
@@ -246,11 +245,15 @@ V \kde\ dne .................... &........................................ \\	% 
 \chapter*{Úvod} % SEM NESAHEJTE!
 \addcontentsline{toc}{chapter}{Úvod} % SEM NESAHEJTE!
 %
-V současné době se díky technologickému vývoji objevil zájem o manipulaci s daty ve virtuální realitě, což je atraktivní pro různé průmysly, jako třeba zábavní průmysl (např. Half Life: Alyx\cite{EhojVv10CLuHHXEX}), ale také vědecké obory, jako je například stavebnictví\cite{unityvrstavebnictvi} či medicína\cite{virtamed}. Pro zobrazování musíme použít vhodné hardwarové vybavení. Na trhu máme na výběr z několika různých výrobců a modelů, například Meta Quest\cite{metaquest}, HTC Vive\cite{htcvive} nebo Valve Index\cite{valveindex}. Hardware se liší hlavně v tom, jaké aplikace a knihovny ho podporují. Tato práce bude prováděna za použití Valve Index\cite{valveindex}, jelikož k ní mám přístup. Nyní se přesuneme k softwaru, kde krátce představím různé využitelné možnosti pro vizualizaci dat ve VR.
-\par{}Game enginy Unity\cite{unityvr} a Unreal Engine\cite{unrealvr}. Tyto enginy nám poskytují možnost vytvořit aplikaci pomocí již předpřipravených knihoven a nástrojů, mezi nimiž nalezneme například detekci inputu\cite{unityvrdokovladani}, nebo nástroje pro multiplatformní vývoj\cite{unitymulti}. Tyto enginy jsou používané v různých odvětvích, jako je stavebnictví\cite{unityvrstavebnictvi} nebo ve zdravotnictví (produkty od Virtamed\cite{virtamed}).
-\par{}Aplikace ParaView\cite{paraviewvrdok} poskytuje možnost pracovat s formáty souborů běžně používaných ve vědecké činnosti a poskytuje možnost vytvářet skripty pro automatizaci práce\cite{paraviewscript}. Dále existuje NVIDIA IndeX, který se zaměřuje na práci s výpočetními clustery\cite{nvidiaindex}. NVIDIA IndeX také existuje jako plugin pro ParaView umožňující 3D interakci s obrovskými datasety\cite{nvidiaindexdok}.
-\par{}Pro tvorbu aplikací na nižší programovací úrovňi můžeme použít knihovnu OpenVR\cite{openvrdok}, což je open source knihovna pod licensí BSD-3-Clause license\cite{openvrdok}. Tato knihovna je vhodná pro případy, kdy chceme přímo manipulovat s hardwarem\cite{openvrdok}, její dokumentace je ale neúplná.
-\par{}V této práci budeme využívat Unity pro tvorbu naší aplikace a to hlavně z důvodu dostupnosti softwaru a kompatibility s naším hardwarem\cite{unitypodpora}.
+S technologickým vývojem se objevila z různých specializovaných důvodů potřeba manipulovat s daty ve 3-rozměrném prostoru a tak byly vyvinuté technologie, které toto zobrazení umožňují. Mezi tyto technologie patří VR (Virtual Reality), AR (Augmented Reality) a MR (Mixed Reality). VR je technologie která nám umožňuje vstoupit do digitálního světa a manipulovat s 3D objekty, AR zachovává prvky opravdového světa a přidává k němu digitální "displej" (představme si například jako HUD v herním světě). MR se snaží tyto dvě technologie zkombinovat a poskytnout možnost, jak rozšířit opravdový svět o 3D objekty se kterými je možné manipulovat. V této práci se budeme zabývat VR světem, který je atraktivní pro různé průmysly, v praxi se můžeme setkat například s využitím v zábavním průmyslu, medicíně\cite{virtamed}, ale i třeba v stavebnictví\cite{unityvrstavebnictvi}. Pro plné využití je třeba použít vhodné hardwarové vybavení. Na trhu máme na výběr z několika různých výrobců a modelů, například Meta Quest\cite{metaquest} od společnosti Meta, HTC Vive\cite{htcvive} od společností Valve a HTC nebo Valve Index\cite{valveindex}. Hardware se liší hlavně v tom, jaké aplikace a knihovny ho podporují. Tato práce bude prováděna za použití Valve Index\cite{valveindex}, jelikož k tomuto hardwaru máme přístup a je široce podporovaný.
+
+Pro účel vytváření aplikací lze v dnešní době použít různé softwarové nástroje. Prvním příkladem těchto nástrojů jsou game enginy Unity\cite{unityvr} a Unreal Engine\cite{unrealvr}. Tyto enginy nám poskytují možnost vytvořit aplikaci pomocí již předpřipravených knihoven a nástrojů, mezi nimiž nalezneme například detekci vstupu hardwaru\cite{unityvrdokovladani}, nebo nástroje pro multiplatformní vývoj\cite{unitymulti}. Tyto enginy jsou používané v různých odvětvích, jako je stavebnictví\cite{unityvrstavebnictvi} nebo ve zdravotnictví (produkty od Virtamed\cite{virtamed}).
+
+Aplikace ParaView\cite{paraviewvrdok} poskytuje možnost pracovat s formáty souborů běžně používaných ve vědecké činnosti a poskytuje možnost vytvářet skripty pro automatizaci práce\cite{paraviewscript}. Dalším příkladem je NVIDIA IndeX, který se zaměřuje na práci s výpočetními clustery\cite{nvidiaindex}. NVIDIA IndeX také existuje jako plugin pro ParaView umožňující 3D interakci s obrovskými datasety\cite{nvidiaindexdok}.
+
+Pro tvorbu aplikací na nižší programovací úrovňi můžeme použít knihovnu OpenVR\cite{openvrdok}, což je open source knihovna pod licensí BSD-3-Clause license\cite{openvrdok}. Tato knihovna je vhodná pro případy, kdy chceme přímo manipulovat s hardwarem\cite{openvrdok}, její dokumentace je ale nedostatečná a tak práce s touto knihovnou není přímočará a je třeba tuto knihovnu prostudovat do hloubky.
+
+V rámci této práce budeme využívat Unity pro tvorbu naší aplikace a to hlavně z důvodu dostupnosti softwaru, kompatibility s naším hardwarem\cite{unitypodpora} a disponability různými rozšířeními (toolkity), které usnadňují práci s VR hardwarem, například XR Interaction Toolkit\cite{unityxrinteract}.Budeme se zabývat použitím VR pro účel vizualizace numerických simulací v reálném čase. Tato aplikace půjde potencionálně využít při hlubším studiu jevů vyskytujících se v problematice proudění tekutin či jako rozšíiřující prvek výuky studentů z FJFI.
 
 
 
@@ -261,12 +264,13 @@ V současné době se díky technologickému vývoji objevil zájem o manipulaci
 
 
 \chapter{Využití Unity pro VR vizualizaci}
-podrobnější popis Unity, proč je vhodné pro tento projekt
+Unity disponuje několika různými nástroji, které lze použít k vývoji aplikací pro VR, mezi nimiž nalezneme například XR Interaction Toolkit\cite{unityxrinteract}, který je pro nás důležitým nástrojem pro využití našeho hardwaru.
+
+\chapter{Mřížková Boltzmannova metoda}
 
 \chapter{Návrh a implementace programu}
 \section{Postup při návrhu}
 
-\section{LBM}
 
 \section{Technické detaily implementace}
 
@@ -345,6 +349,9 @@ VALVE CORPORATION. \textit{OpenVR} [online]. 2024 [cit. 2024-11-03]. Dostupné z
 UNITY TECHNOLOGIES. \textit{Unity VR podpora} [online]. 2024 [cit. 2024-11-03]. Dostupné z: https://docs.unity3d.com/560/Documentation/Manual/VRDevices-OpenVR.html
 
 
+\bibitem{unityxrinteract}
+UNITY TECHNOLOGIES. \textit{Unity XR interaction toolkit} [online]. 2024 [cit. 2024-11-03]. Dostupné z: https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@2.3/manual/index.html
+
 \bibitem{unityvrdok}
 UNITY TECHNOLOGIES. \textit{Unity VR dokumentace} [online]. 2024 [cit. 2024-11-03]. Dostupné z: https://docs.unity3d.com/Manual/VROverview.html
 
@@ -365,8 +372,8 @@ KITWARE. \textit{ParaView scripting} [online]. 2024 [cit. 2024-11-03]. Dostupné
 
 
 %%%%%%%%%%%% Příloha A (tj. 1. kapitola v rámci příloh) %%%%%%%%%%%%
-\chapter{Název přílohy} % zde změňte název přílohy, příp. zakomentujte a vložte soubor, kde je název přílohy + její text (odmažte/zakomentujte text níže + odkomentujte \input{}):
-Zde napište text první přílohy nebo jej vložte, např.: \texttt{\textbackslash input\{priloha\_A.tex\}}.
+\chapter{Dokumentace k aplikaci} % zde změňte název přílohy, příp. zakomentujte a vložte soubor, kde je název přílohy + její text (odmažte/zakomentujte text níže + odkomentujte \input{}):
+%Zde napište text první přílohy nebo jej vložte, např.: \texttt{\textbackslash input\{priloha\_A.tex\}}.
 %
 %\input{priloha_A.tex} % text vkládán ze souboru, kde je i příkaz \chapter{...}
 
