@@ -2,7 +2,7 @@
 %% === nezbytné balíčky:
 \usepackage[IL2]{fontenc}   % písmo pro UTF-8 || jiné: [T1] (funguje pro UTF-8?)
 \usepackage[utf8]{inputenc} % vstupní znaková sada UTF-8 || [cp1250] -> Windows 1250 || [latin2] -> ISO Latin 2
-
+\usepackage{float}
 \usepackage[czech]{babel} % česky psaná práce, typografická pravidla     
 
 \usepackage{pdfpages} % pokud nemáte formulář "Zadání bak./dipl. práce" naskenovaný jako PDF, tak ZAKOMENTUJTE
@@ -264,7 +264,45 @@ V rámci této práce budeme využívat Unity pro tvorbu naší aplikace a to hl
 
 
 \chapter{Využití Unity pro VR vizualizaci}
-Unity disponuje několika různými nástroji, které lze použít k vývoji aplikací pro VR, mezi nimiž nalezneme například XR Interaction Toolkit\cite{unityxrinteract}, který je pro nás důležitým nástrojem pro využití našeho hardwaru.
+Unity je multiplatformní herní engine vyvinutý společností Unity Technologies. Byl vyvinutý za cílem umožnit vývojářům vytvářet interaktivní 3D a 2D obsah za využití různých robustních vestavěných možností.
+
+Struktura projektu v Unity je zaměřená na scény, každý projekt má počáteční scénu, ve které se nacházejí objekty (také někdy označováno "assets", což nemusí označovat nutně pouze objekty, ale i skripty). V hlavním okně se můžeme setkat s několika různými panely, v rozložení "Default" nalezneme na levém panelu list všech objektů momentálně ve scéně, uprostřed vidíme jak naše scéna bude vypadat po spuštění projektu, na pravém panelu se nachází vlastnosti momentálně vybraného objektu a dole máme souborový prohlížeč, toto uspořádání můžeme vidět na obr.\ref{fig:unity_hlavni_okno}. Tento layout můžeme kdykoliv změnit na jiný podle preference.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_hlavni.png}
+	\caption{Unity hlavní okno}
+	\label{fig:unity_hlavni_okno}
+\end{figure}
+
+Programovat v Unity můžeme buď za pomocí vizuálního programování, viz obr.\ref{fig:unity_vizualni}, či za pomocí tradičního programování v jazyce C\#.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_vizualni_programovani.png}
+	\caption{Unity vizuální programování}
+	\label{fig:unity_vizualni}
+\end{figure}
+Pro vytvoření skriptu stačí kliknout na požadovaný objekt, v pravém panelu najít tlačítko "Add Component" a v tomto submenu najít možnost "New script", viz obr.\ref{fig:unity_novy_skript}.
+
+Po pojmenování nového skriptu ho nalezneme v souboru Assets, odkud ho můžeme rozkliknout a otevřít pro editování v externím editoru, nikoliv v Unity. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_pridani_skript.png}
+	\caption{Submenu pro přidání skriptu k objektu}
+	\label{fig:unity_novy_skript}
+\end{figure}
+
+Při vytvoření skriptu touto metodou se nám zobrazí již předgenerovaná "kostra" skriptu, se kterou můžeme následovně pracovat, viz obr.\ref{fig:unity_skript}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_skript_kostra.png}
+	\caption{Nový skript po vytvoření pomocí Add Component}
+	\label{fig:unity_skript}
+\end{figure}
+
 
 \chapter{Mřížková Boltzmannova metoda}
 
