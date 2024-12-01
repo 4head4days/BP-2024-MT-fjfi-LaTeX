@@ -303,6 +303,29 @@ Při vytvoření skriptu touto metodou se nám zobrazí již předgenerovaná "k
 	\label{fig:unity_skript}
 \end{figure}
 
+V Unity se také setkáme s Unity Asset Store, což je virtuální tržiště, na kterém lze získat různé assety, například skripty, předpřipravené scény, nebo různé nástroje pro ulehčení specifických činností, které mohou, ale nemusí, být zpoplatněné, viz. obr.\ref{fig:unity_asset_store}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_asset_store.jpeg}
+	\caption{Úvodní stránka Unity Asset Store}
+	\label{fig:unity_asset_store}
+\end{figure}
+
+Pro specializované potřeby lze v Unity pracovat s balíky ulehčující tuto práci nazývané Packages. Pokud by jsme je chtěli spravovat musíme se nejdřív dostat do Package Manager okna, ke kterému se lze dostat přes Window a poté Package Manager. V tomto okně můžeme spravovat již nainstalované package, či instalovat nové, viz. obr.\ref{fig:unity_package_manager}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_package_manager.png}
+	\caption{Unity Package Manager}
+	\label{fig:unity_package_manager}
+\end{figure}
+
+K práci ve VR budeme využívat následující packages - XR Interaction Toolkit, XR Plugin Manager, XR Hands, OpenXR Plugin a pro debugování MockHMD XR Plugin.
+
+Tyto package nám poskytují potřebnou funkcionalitu pro rozpoznávání nejen našeho použitého VR headsetu, ale také pro interakci za použití ovladačů (XR Hands). Pro debugování použijeme MockHMD XR Plugin, jež simuluje VR hardware, je použitý z důvodu nepraktičnosti nasazování VR headsetu pro každé testování.
+
+
 
 \chapter{Mřížková Boltzmannova metoda}
 
