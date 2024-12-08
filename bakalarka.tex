@@ -264,33 +264,34 @@ V rámci této práce budeme využívat Unity pro tvorbu naší aplikace a to hl
 
 
 \chapter{Využití Unity pro VR vizualizaci}
+\section{Úvod do Unity}
 Unity je multiplatformní herní engine vyvinutý společností Unity Technologies. Byl vyvinutý za cílem umožnit vývojářům vytvářet interaktivní 3D a 2D obsah za využití různých robustních vestavěných možností.
 
-Struktura projektu v Unity je zaměřená na scény, každý projekt má počáteční scénu, ve které se nacházejí objekty (také někdy označováno "assets", což nemusí označovat nutně pouze objekty, ale i skripty). V hlavním okně se můžeme setkat s několika různými panely, v rozložení "Default" nalezneme na levém panelu list všech objektů momentálně ve scéně, uprostřed vidíme jak naše scéna bude vypadat po spuštění projektu, na pravém panelu se nachází vlastnosti momentálně vybraného objektu a dole máme souborový prohlížeč, toto uspořádání můžeme vidět na obr.\ref{fig:unity_hlavni_okno}. Tento layout můžeme kdykoliv změnit na jiný podle preference.
+Struktura projektu v Unity je zaměřená na scény, každý projekt má počáteční scénu, která lze vidět na obr.\ref{fig:unity_hlavni_okno}, ve které se nacházejí objekty (také někdy označováno "assets", což nemusí označovat nutně pouze objekty, ale i skripty). V hlavním okně se můžeme setkat s několika různými panely, v rozložení "Default" nalezneme na levém panelu list všech objektů momentálně používaných ve scéně. Uprostřed vidíme jak naše scéna bude vypadat po spuštění projektu. Na pravém panelu se nachází vlastnosti momentálně vybraného objektu. Dole je umístěn souborový prohlížeč. Tento layout můžeme kdykoliv změnit na jiný podle preference.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{obrazky/unity_hlavni.png}
-	\caption{Unity hlavní okno}
+	\caption{Ukázka rozložení ovládání a vizualizace scén v aplikaci Unity.}
 	\label{fig:unity_hlavni_okno}
 \end{figure}
 
-Programovat v Unity můžeme buď za pomocí vizuálního programování, viz obr.\ref{fig:unity_vizualni}, či za pomocí tradičního programování v jazyce C\#.
+Programovat v Unity můžeme buď za pomocí vizuálního programování, viz obr.\ref{fig:unity_vizualni}, či za pomocí skriptování v jazyce C\#.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{obrazky/unity_vizualni_programovani.png}
-	\caption{Unity vizuální programování}
+	\caption{Ukázka tvorby skriptu v Unity pomocí vizuálních prvků.}
 	\label{fig:unity_vizualni}
 \end{figure}
-Pro vytvoření skriptu stačí kliknout na požadovaný objekt, v pravém panelu najít tlačítko "Add Component" a v tomto submenu najít možnost "New script", viz obr.\ref{fig:unity_novy_skript}.
+Výtvor skriptu probíhá následovně: nejprve klikneme na požadovaný objekt, v pravém panelu najdeme tlačítko "Add Component" a v tomto submenu zvolíme možnost "New script", viz obr.\ref{fig:unity_novy_skript}.
 
 Po pojmenování nového skriptu ho nalezneme v souboru Assets, odkud ho můžeme rozkliknout a otevřít pro editování v externím editoru, nikoliv v Unity. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{obrazky/unity_pridani_skript.png}
-	\caption{Submenu pro přidání skriptu k objektu}
+	\includegraphics[width=0.5\textwidth]{obrazky/unity_pridani_skript.png}
+	\caption{Submenu pro přidání skriptu k objektu v Unity.}
 	\label{fig:unity_novy_skript}
 \end{figure}
 
@@ -299,7 +300,7 @@ Při vytvoření skriptu touto metodou se nám zobrazí již předgenerovaná "k
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{obrazky/unity_skript_kostra.png}
-	\caption{Nový skript po vytvoření pomocí Add Component}
+	\caption{Nový skript po vytvoření pomocí Add Component.}
 	\label{fig:unity_skript}
 \end{figure}
 
@@ -325,6 +326,33 @@ K práci ve VR budeme využívat následující packages - XR Interaction Toolki
 
 Tyto package nám poskytují potřebnou funkcionalitu pro rozpoznávání nejen našeho použitého VR headsetu, ale také pro interakci za použití ovladačů (XR Hands). Pro debugování použijeme MockHMD XR Plugin, jež simuluje VR hardware, je použitý z důvodu nepraktičnosti nasazování VR headsetu pro každé testování.
 
+\section{Práce s Texturami v Unity}
+K zobrazení obrázků používáme v Unity textury, primárně Texture2D\cite{unity_texture_2D} a Texture3D\cite{unity_texture_3D}. Pro naše potřeby je postačující Texture2D, jelikož naše simulace je 2D. Důležité je zmínit, že nesmíme zaměnit pojmy Material a Texture, textura je prakticky obrázek různého formátu, mezitím co materiál můžeme chápat jako popis toho, jak se má povrch objektu renderovat, v materialu se také textura bere jako jeden z parametrů.
+
+Po položení objektu do scény si můžeme všimnout, že nemá ze začátku texturu, tu mu teprve musíme přidat vytvořením vlastního materiálu. Materiál vytvoříme pomocí pravého kliknutí v Assets, navigujeme pod Create, rozklikeneme Material a tím získáme nový materiál, viz obr.\ref{fig:unity_material_create}, nyní mu přidáme texturu tím, že přetáhneme námi vybraný obrázek do políčka Base Map, které nalezneme v Inspectoru pod Surface Inputs na našem materiálu, viz. obr.\ref{fig:unity_material_add_texture}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_material_create.png}
+	\caption{Ukázka menu pro vytvoření nového materiálu v Unity.}
+	\label{fig:unity_material_create}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_material_add_texture.png}
+	\caption{Ukázka přetáhnutí do políčka pro vytvoření textury, textura je parametr materiálu.}
+	\label{fig:unity_material_add_texture}
+\end{figure}
+
+ Materiál aplikujeme na objekt přetažením materiálu na jméno zvoleného objektu v hierarchii scény nebo přímo na něj ve scéně, viz. obr.\ref{fig:unity_material_drop}.
+ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{obrazky/unity_material_drop.png}
+	\caption{Ukázka aplikace materiálu na Cube3D objekt uvnitř scény.}
+	\label{fig:unity_material_drop}
+\end{figure}
 
 
 \chapter{Mřížková Boltzmannova metoda}
@@ -418,6 +446,12 @@ UNITY TECHNOLOGIES. \textit{Unity VR dokumentace} [online]. 2024 [cit. 2024-11-0
 
 \bibitem{unitymulti}
 UNITY TECHNOLOGIES. \textit{Unity multiplatform} [online]. 2024 [cit. 2024-11-03]. Dostupné z: https://unity.com/solutions/multiplatform
+
+\bibitem{unity_texture_2D}
+UNITY TECHNOLOGIES. \textit{Unity dokumentace Texture2D} [online]. 2024 [cit. 2024-12-08]. Dostupné z: https://docs.unity3d.com/ScriptReference/Texture2D.html
+
+\bibitem{unity_texture_3D}
+UNITY TECHNOLOGIES. \textit{Unity dokumentace Texture3D} [online]. 2024 [cit. 2024-12-08]. Dostupné z: https://docs.unity3d.com/ScriptReference/Texture3D.html
 
 \bibitem{paraviewscript}
 KITWARE. \textit{ParaView scripting} [online]. 2024 [cit. 2024-11-03]. Dostupné z: https://www.paraview.org/scripting/
